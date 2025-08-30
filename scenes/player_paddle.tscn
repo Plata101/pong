@@ -6,14 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uktar"]
 size = Vector2(25, 104)
 
-[node name="Player Paddle" type="CharacterBody2D"]
+[node name="PlayerPaddle" type="CharacterBody2D"]
 script = ExtResource("1_uktar")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("1_yyijc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
-position = Vector2(1, 0.5)
-rotation = -1.5708
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.500004, 0.999998)
 shape = SubResource("RectangleShape2D_uktar")
