@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chxpeg8slkb2f" path="res://assets/paddleBlu.png" id="1_yyijc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uktar"]
-size = Vector2(25, 104)
+size = Vector2(25, 91)
 
 [node name="PlayerPaddle" type="CharacterBody2D"]
 script = ExtResource("1_uktar")
@@ -14,5 +14,5 @@ rotation = 1.5708
 texture = ExtResource("1_yyijc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.500004, 0.999998)
+position = Vector2(-0.500004, 0.5)
 shape = SubResource("RectangleShape2D_uktar")

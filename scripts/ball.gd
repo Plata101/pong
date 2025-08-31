@@ -1,7 +1,22 @@
 extends Area2D
 
-var horizontalSpeed = 100
-var verticalSpeed = 200
+
+# 1. DECLARE THE SIGNAL
+# This defines a new signal our ball can send out. The parameter name
+# helps us remember what kind of data it carries.
+signal direction_changed(is_moving_towards_ai)
+
+var horizontalSpeed = -400
+var verticalSpeed = 0
+
+var rng = RandomNumberGenerator.new()
+
+
+
+func _ready():
+	var my_random_number = rng.randf_range(-50.0, 50.0)
+	# global_position.y += my_random_number
+
 
 
 func _physics_process(delta):
@@ -15,9 +30,25 @@ func _on_body_entered(body):
 	if body.name == "Player Paddle":
 		print("Hit the player paddle!")
 		# Reverse the horizontal direction
-		horizontalSpeed -= horizontalSpeed * 2
+		horizontalSpeed = -200
+		# 2. EMIT THE SIGNAL
+		# We tell all listening nodes that the ball is now moving towards the AI.
+		direction_changed.emit(true)
 		
 	if body.name == "BottomWall":
 		print("Hit the bottom Wall!")
 		# Reverse the vertical direction
-		verticalSpeed -= verticalSpeed * 2
+		verticalSpeed = -200 
+		
+	if body.name == "TopWall":
+		print("Hit the top Wall!")
+		# Reverse the vertical direction
+		verticalSpeed = 200
+		
+	if body.name == "AI Paddle":
+		print("Hit the ai paddle!")
+	# Reverse the horizontal direction
+		horizontalSpeed = 200
+	# 	2. EMIT THE SIGNAL
+		# We tell all listening nodes that the ball is NOT moving towards the AI.
+		direction_changed.emit(false)

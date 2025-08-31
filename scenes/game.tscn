@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://muylpth7t7nq"]
+[gd_scene load_steps=7 format=3 uid="uid://muylpth7t7nq"]
 
 [ext_resource type="PackedScene" uid="uid://b0f3qg0l1hyb0" path="res://scenes/background.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://bx0qhcugnwmil" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://by0qf7nvch1yw" path="res://scenes/player_paddle.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c0bp5xhcn12sh" path="res://scenes/ball.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dxkr23cihqa12" path="res://scenes/ai_paddle.tscn" id="5_iywne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 size = Vector2(5.62256, 1.47543)
@@ -14,12 +15,12 @@ script = ExtResource("1_yqjtg")
 [node name="Background" parent="." instance=ExtResource("1_uwrxv")]
 
 [node name="Player Paddle" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(38, 75)
+position = Vector2(30, 325)
 collision_layer = 2
 collision_mask = 5
 
 [node name="Ball" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(436, 264)
+position = Vector2(601, 331)
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(592, -30)
@@ -41,3 +42,9 @@ position = Vector2(0, 1.00002)
 rotation = 3.14159
 scale = Vector2(276.564, 40.6661)
 shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="AI Paddle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("5_iywne")]
+position = Vector2(1118, 329)
+ball = NodePath("../Ball")
+
+[connection signal="direction_changed" from="Ball" to="AI Paddle" method="_on_ball_direction_changed"]
