@@ -6,8 +6,8 @@ extends Area2D
 # helps us remember what kind of data it carries.
 signal direction_changed(is_moving_towards_ai)
 
-var horizontalSpeed = -400
-var verticalSpeed = 0
+var horizontalSpeed = 300
+var verticalSpeed = 150
 
 var rng = RandomNumberGenerator.new()
 
@@ -15,7 +15,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	var my_random_number = rng.randf_range(-50.0, 50.0)
-	# global_position.y += my_random_number
+	global_position.y += my_random_number
 
 
 
