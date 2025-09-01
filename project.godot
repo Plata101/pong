@@ -42,3 +42,5 @@ PaddleDown={
 2d_physics/layer_2="player"
 2d_physics/layer_3="ball"
 2d_physics/layer_4="computer"
+2d_physics/layer_5="goalPlayer"
+2d_physics/layer_6="goalComputer"

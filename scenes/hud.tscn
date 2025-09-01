@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm3yrefqykipw"]
+
+[ext_resource type="Script" uid="uid://c7fsjpjdkxygx" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_toqtt"]
+font_size = 50
+font_color = Color(0.192157, 0.215686, 0.788235, 1)
+outline_size = 10
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ahhtf")
+
+[node name="PlayerScoreLabel" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 89.0
+text = "0"
+label_settings = SubResource("LabelSettings_toqtt")
+horizontal_alignment = 1
+
+[node name="AIScoreLabel" type="Label" parent="."]
+offset_left = 1052.0
+offset_top = 20.0
+offset_right = 1092.0
+offset_bottom = 89.0
+text = "0"
+label_settings = SubResource("LabelSettings_toqtt")
+horizontal_alignment = 1
