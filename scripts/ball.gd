@@ -6,6 +6,10 @@ extends Area2D
 # helps us remember what kind of data it carries.
 signal direction_changed(is_moving_towards_ai)
 
+
+# Get a reference to the sound player node
+@onready var ping_sound = $PingSound
+
 var horizontalSpeed
 
 var rng = RandomNumberGenerator.new()
@@ -52,6 +56,7 @@ func _on_body_entered(body):
 		# 2. EMIT THE SIGNAL
 		# We tell all listening nodes that the ball is now moving towards the AI.
 		direction_changed.emit(true)
+		ping_sound.play() # ✅ Play the sound
 		
 	if body.name == "BottomWall":
 		print("Hit the bottom Wall!")
@@ -70,6 +75,7 @@ func _on_body_entered(body):
 	# 	2. EMIT THE SIGNAL
 		# We tell all listening nodes that the ball is NOT moving towards the AI.
 		direction_changed.emit(false)
+		ping_sound.play() # ✅ Play the sound
 
 func stop_moving():
 	# Set speeds to 0 to stop the ball while it's hidden

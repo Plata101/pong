@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://muylpth7t7nq"]
+[gd_scene load_steps=12 format=3 uid="uid://muylpth7t7nq"]
 
 [ext_resource type="PackedScene" uid="uid://b0f3qg0l1hyb0" path="res://scenes/background.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://bx0qhcugnwmil" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://by0qf7nvch1yw" path="res://scenes/player_paddle.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c0bp5xhcn12sh" path="res://scenes/ball.tscn" id="4_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://8ecmces2ck1p" path="res://assets/impact.wav" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dxkr23cihqa12" path="res://scenes/ai_paddle.tscn" id="5_iywne"]
 [ext_resource type="Script" uid="uid://dr4nnu62ajqob" path="res://scripts/player_goal.gd" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://c674jdplg3fq8" path="res://scripts/ai_goal.gd" id="7_u5sy4"]
@@ -28,6 +29,9 @@ collision_mask = 5
 [node name="Ball" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(601, 331)
 collision_mask = 59
+
+[node name="PingSound" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource("5_0tnpc")
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(592, -30)
