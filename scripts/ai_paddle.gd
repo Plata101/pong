@@ -3,10 +3,11 @@ extends CharacterBody2D
 #get reference to the ball node
 @export var ball: Node2D
 
-@export var paddleSpeed = 170
+@export var paddleSpeed = 255
 
 # This will track whether the AI should be active
 var is_ball_coming_towards_me = false
+
 
 func _on_ball_direction_changed(is_moving_towards_ai):
 	# This function will be connected to the ball's signal.
